@@ -17,9 +17,10 @@ float Entropy::calculate(std::string encrypted) {
 
     float curr_entropy = 0.00;
 
+    //Apply Shannon entropy formula where frequency is not equal to 0
     for (int i = 0; i < 26; i++)
         if (char_counts[i] != 0)
-            curr_entropy += (char_counts[i]) * (std::log(char_counts[i]));
+            curr_entropy += (static_cast<float>(char_counts[i])/26.00) * (std::log(static_cast<float>(char_counts[i]))/26.00);
 
     return curr_entropy;
 }
