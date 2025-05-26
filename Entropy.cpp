@@ -18,7 +18,8 @@ float Entropy::calculate(std::string encrypted) {
     float curr_entropy = 0.00;
 
     for (int i = 0; i < 26; i++)
-        curr_entropy += (char_counts[i]) * (std::log(char_counts[i]));
+        if (char_counts[i] != 0)
+            curr_entropy += (char_counts[i]) * (std::log(char_counts[i]));
 
     return curr_entropy;
 }
