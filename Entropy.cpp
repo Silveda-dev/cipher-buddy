@@ -4,12 +4,11 @@
 #include <cmath>
 
 float Entropy::calculate(std::string encrypted) {
-    int char_counts[26] = {}; //Initialise the count of each letter to 0
+    int char_counts[26] = {0};
     int total_chars = 0;
 
     std::transform(encrypted.begin(), encrypted.end(), encrypted.begin(), ::tolower);
 
-    //Create count of different letters
     for (int i = 0; i < encrypted.length(); i++) {
         if (!ispunct(encrypted[i]) && encrypted[i] != ' ') {
             char_counts[encrypted[i] - 'a']++;
